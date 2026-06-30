@@ -10,6 +10,7 @@ _ledger_ids = count(1)
 
 
 class OperacaoInvalida(Exception):
+    pass
 
 
 @dataclass
