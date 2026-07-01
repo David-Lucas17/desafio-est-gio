@@ -1,33 +1,40 @@
 # Minha Solução — Banco
 
-> Substitua o conteúdo entre colchetes pelas informações da sua solução.
-> Estas informações (aqui ou no README do seu fork) são **obrigatórias**.
-
 ## Stack
-- **Backend:** [linguagem e versão — ex.: Node.js 20 / Python 3.11 / Go 1.22] (deve estar no pool aceito)
-- **Frontend:** [ex.: HTML/CSS/JS puro / React / Vue]
+- **Backend:** Python 3.10+ com Flask 3.0
+- **Frontend:** HTML/CSS/JS puro 
 
 ## Pré-requisitos / dependências
-- [o que precisa estar instalado e como instalar — ex.: `npm install`, `pip install -r requirements.txt`]
+- Python 3.10 ou superior e `pip` instalados
+- Frontend: só um navegador, sem dependências adicionais
 
 ## Como executar
 
 ### Backend (API)
 ```bash
-# [comando(s) para subir o backend]
-# ex.: npm run start  →  API em http://localhost:3000
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python app.py
+# API em http://localhost:5001
 ```
 
 ### Frontend
 ```bash
-# [comando(s) para subir o frontend]
-# ex.: abrir index.html  /  npm run dev  →  http://localhost:5173
+cd frontend
+python3 -m http.server 5501
+# abrir http://localhost:5501 no navegador
 ```
 
 ## Exemplo de uso
-```
-[descreva um fluxo: ex. fazer um saque na tela e o resultado retornado pela API]
-```
+1. Abra `http://localhost:5501` com a API rodando.
+2. Clique em uma conta na coluna esquerda para abrir a caderneta.
+3. Na aba **Saque**, informe um valor e confirme, a tela mostra o resultado com um carimbo animado.
+4. Na aba **Transferência**, escolha a conta de destino e o valor.
+5. Operações inválidas (saldo insuficiente, limite do cheque especial) retornam erro com mensagem explicando.
 
-## Observações (opcional)
-- [decisões de modelagem, itens de bônus implementados, limitações conhecidas, etc.]
+## Observações
+- Regras de negócio isoladas em `models.py`, separadas das rotas HTTP em `app.py`.
+- Transferência adicionada como diferencial.
+- Contas em memória — 4 contas de exemplo (2 correntes, 2 poupanças).
